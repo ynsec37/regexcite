@@ -1,0 +1,18 @@
+url: ~
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#7A00E6"
+    info: "#7A00E6"
+    navbar-light-brand-color: "#FFFFFF"
+    navbar-light-brand-hover-color: "#FFFFFF"
+    navbar-light-color: "#FFFFFF"
+    navbar-light-hover-color: "#FFFFFF"
+    navbar-light-active-color: "#FFFFFF"
+    dropdown-link-hover-color: "#FFFFFF"
+    dropdown-link-hover-bg: "#7A00E6"
+
+navbar:
+  bg: info
+  type: light
