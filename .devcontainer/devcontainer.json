@@ -1,11 +1,11 @@
 {
 	"name": "R-4.2 (RStudio) container",
 	"image": "ghcr.io/rocker-org/tidyverse:4.2",
-  
+
 	"containerEnv": {
 		"ROOT": "true",
 		"PASSWORD": "rstudio",
-		"DISABLE_AUTH": "true",
+		"DISABLE_AUTH": "true", // disable authentication for RStudio Server 
 		"RENV_AUTOLOADER_ENABLED": "false"
 	},  
   
@@ -53,10 +53,18 @@
 		}
 	},
 
-  "postAttachCommand": {
-        // run RStudio Server automatically
-        "rstudio-start": "rserver"
-    },
+	"init": true,
+	"overrideCommand": false,
+	
+	"postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+
+	"postAttachCommand": "$BROWSER \"https://${CODESPACE_NAME}-8787.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/\"; echo 'To open rstudio in your browser, just type rstudio in the terminal'",
+
+  // "postAttachCommand": {
+  //       // run RStudio Server automatically
+  //       "rstudio-start": "rserver"
+  //   },
+
     "forwardPorts": [
         8787
     ],
