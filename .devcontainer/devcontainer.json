@@ -1,12 +1,39 @@
 {
     "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
     "features": {
-	"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-        	"packages": "jq"
-    	},
+        "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+            "version": "none",
+            "vscodeRSupport": "full",
+            "installVscDebugger": true,
+            "installRadian": true
+            // "installJupyterlab": true
+        },
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+            "packages": "jq"
+        },
         "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {}
     },
-  "postAttachCommand": {
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "r.rterm.linux": "/usr/local/bin/radian",
+                "r.bracketedPaste": true,
+                "editor.bracketPairColorization.enabled": true,
+                "editor.guides.bracketPairs": "active"
+            },
+            "extensions": [
+                // "vsls-contrib.codetour",
+                // "GitHub.copilot",
+                // "GitHub.copilot-chat",
+                //  R extensions
+                "ikuyadeu.r",
+                "REditorSupport.r-lsp"
+                // Extra extension
+            ]
+        }
+    },
+    "postCreateCommand": "bash Rscript -e 'renv::restore()'",
+    "postAttachCommand": {
         "rstudio-start": "rserver"
     },
     "forwardPorts": [
