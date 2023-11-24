@@ -1,5 +1,5 @@
 {
-    "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+    "image": "ghcr.io/rocker-org/r-ver:4.2.1",
     "features": {
         "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
             "version": "none",
@@ -22,13 +22,8 @@
                 "editor.guides.bracketPairs": "active"
             },
             "extensions": [
-                // "vsls-contrib.codetour",
-                // "GitHub.copilot",
-                // "GitHub.copilot-chat",
-                //  R extensions
                 "ikuyadeu.r",
                 "REditorSupport.r-lsp"
-                // Extra extension
             ]
         }
     },
